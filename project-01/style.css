@@ -1,14 +1,16 @@
 :root {
-  --bg-dark: #102033;
-  --bg-light: #f4f6f8;
-  --card-bg: #ffffff;
-  --primary: #2f6fed;
-  --primary-light: #dbe7ff;
-  --accent: #f59e0b;
-  --text-dark: #1f2937;
-  --text-light: #ffffff;
-  --border: #d7e0ea;
-  --shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  --bg-dark: #2f3a23;         /* deep olive green */
+  --bg-dark-2: #3b472d;       /* slightly lighter olive */
+  --bg-light: #f5efe4;        /* warm sand */
+  --card-bg: #fbf7ef;         /* soft cream */
+  --primary: #8b5e34;         /* earthy brown */
+  --primary-light: #e8dcc8;   /* pale tan */
+  --accent: #b36a2e;          /* clay / burnt orange */
+  --accent-light: #d8a06a;    /* lighter terracotta */
+  --text-dark: #2b241d;       /* dark brown text */
+  --text-light: #fffaf2;      /* warm white */
+  --border: #ddcfbb;          /* muted tan border */
+  --shadow: 0 12px 24px rgba(43, 36, 29, 0.12);
 }
 
 * {
@@ -17,14 +19,15 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
   line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--bg-light);
 }
 
+/* ---------- HEADER ---------- */
 .site-header {
-  background: linear-gradient(135deg, #0f1e30, #1f4e8c);
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-dark-2));
   color: var(--text-light);
   padding: 1.5rem;
 }
@@ -40,13 +43,14 @@ body {
 
 .navbar h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
 }
@@ -55,14 +59,16 @@ body {
   color: var(--text-light);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 0.25rem;
 }
 
 .navbar a:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
+  color: #ffd9a8;
+  border-bottom: 2px solid var(--accent-light);
 }
 
+/* ---------- HERO ---------- */
 .hero {
   max-width: 1100px;
   margin: 0 auto;
@@ -70,60 +76,80 @@ body {
 }
 
 .hero-text {
-  max-width: 750px;
+  max-width: 760px;
 }
 
 .eyebrow {
   font-size: 0.95rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #d7e7ff;
+  color: #f0c38e;
   margin-bottom: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
 
 .hero h2 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   line-height: 1.15;
   margin-top: 0;
   margin-bottom: 1rem;
+  color: var(--text-light);
 }
 
 .hero p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
+  color: #f7f1e7;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .hero-button {
   display: inline-block;
   background-color: var(--accent);
-  color: var(--text-dark);
+  color: var(--text-light);
   text-decoration: none;
-  padding: 0.85rem 1.4rem;
+  padding: 0.9rem 1.5rem;
   border-radius: 8px;
   font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-button:hover {
-  background-color: #ffd089;
+  background-color: var(--accent-light);
   transform: translateY(-3px);
 }
 
+/* ---------- MAIN SECTIONS ---------- */
 .content-section {
   max-width: 1100px;
   margin: 2rem auto;
   background-color: var(--card-bg);
   padding: 2rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(43, 36, 29, 0.08);
 }
 
 .content-section h2 {
   margin-top: 0;
   font-size: 2rem;
   color: var(--bg-dark);
+  position: relative;
+  padding-bottom: 0.4rem;
 }
 
+.content-section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+/* ---------- SKILLS + PROJECTS LAYOUT ---------- */
 .card-container,
 .project-container {
   display: flex;
@@ -135,25 +161,28 @@ body {
 .card,
 .project-card {
   flex: 1 1 240px;
-  background-color: var(--bg-light);
+  background-color: #f9f4ea;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover,
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow);
+  border-color: var(--accent-light);
 }
 
 .card h3,
 .project-card h3 {
   margin-top: 0;
   color: var(--primary);
+  font-size: 1.35rem;
 }
 
+/* ---------- PROJECT IMAGE BLOCKS ---------- */
 .project-image {
   height: 140px;
   border-radius: 10px;
@@ -165,14 +194,17 @@ body {
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .project-image:hover {
   background-color: var(--primary);
   color: var(--text-light);
+  transform: scale(1.02);
 }
 
+/* ---------- FOOTER ---------- */
 footer {
   margin-top: 2rem;
   padding: 2rem;
@@ -183,10 +215,11 @@ footer {
 
 footer h2 {
   margin-top: 0;
+  font-size: 1.8rem;
 }
 
 footer a {
-  color: var(--accent);
+  color: #f0c38e;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -196,6 +229,7 @@ footer a:hover {
   color: #ffffff;
 }
 
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -212,7 +246,7 @@ footer a:hover {
   }
 
   .hero h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .content-section {
