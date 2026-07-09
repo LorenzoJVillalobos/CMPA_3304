@@ -57,12 +57,14 @@ li {
 }
 
 a {
-  color: #0066CC;
-  text-decoration: underline;
+  color: #4f6f52;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #004499;
+  color: #2f4f34;
+  text-decoration: underline;
 }
 
 code {
@@ -71,6 +73,8 @@ code {
   padding: 2px 6px;
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
+
+/* ---------- Nav Pattern 1: Simple Sidebar ---------- */
 
 .nav-simple {
   position: fixed;
@@ -92,30 +96,32 @@ code {
 .nav-simple a {
   display: block;
   padding: 8px 16px;
-  color: #0066CC;
+  color: #2f4f34;
   text-decoration: none;
-  background-color: #fafafa;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  background-color: #f7faf6;
+  border: 1px solid #a7b7a2;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-simple a:hover {
-  background-color: #0066CC;
+  background-color: #6b8f71;
   color: #ffffff;
 }
 
-.nav-simple+main {
-  margin-left: 232px;
+.nav-simple + main {
+  margin-left: 270px;
 }
+
+/* ---------- Nav Pattern 2: Horizontal Top Nav ---------- */
 
 .nav-horizontal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #333333;
+  background-color: #4f6f52;
   padding: 0 32px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   z-index: 1000;
 }
 
@@ -140,23 +146,66 @@ code {
 }
 
 .nav-horizontal a:hover {
-  color: #0066CC;
+  color: #dfe8dc;
 }
 
-.nav-horizontal+main {
+.nav-horizontal + main {
   margin-top: 80px;
 }
 
-.nav-custom {}
+/* ---------- Nav Pattern 3: Custom Styled Sidebar ---------- */
 
-.nav-custom ul {}
+.nav-custom {
+  position: fixed;
+  top: 90px;
+  left: 32px;
+  width: 220px;
+  background-color: #dfe8dc;
+  padding: 16px;
+  border: 1px solid #7a8b76;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
 
-.nav-custom li {}
+.nav-custom ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-.nav-custom a {}
+.nav-custom li {
+  margin-bottom: 12px;
+}
 
-.nav-custom a:hover {}
+.nav-custom li:last-child {
+  margin-bottom: 0;
+}
 
-@media (width >=480px) {}
+.nav-custom a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #2f4f34;
+  background-color: #f7faf6;
+  border: 1px solid #a7b7a2;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
 
-@media (width >=1024px) {}
+.nav-custom a:hover {
+  background-color: #6b8f71;
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.nav-custom + main {
+  margin-left: 270px;
+}
+
+@media (width >= 480px) {
+}
+
+@media (width >= 1024px) {
+}
